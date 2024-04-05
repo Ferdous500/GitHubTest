@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void)
+{
+
+    int choice;
+
+    do {
+
+        interface_menu();
+        scanf("%d", &choice);
+        switch(choice) {
+        case 1:
+                calculate_meals();
+                break;
+        case 2:
+                calculate_meal_cost();
+                break;
+        case 0:
+                break;
+        default:
+                printf("Choice is invalid :( Please try again:)\n");
+                break;
+
+        }
+
+    } while (choice!=0);
+
+    return 0;
+
+}
+
+void interface_menu()
+{
+    printf("\t\t*****WELCOME to Meal Manager*****\n\n");
+    printf("What do you want to find out?\n");
+    printf("1. Total meals\n");
+    printf("2. Cost of a single meal\n");
+    printf("Enter 0 to exit\n");
+
+}
+
+void calculate_meals()
+{
+    //
+    int people, days, meal_per_day;
+    printf("How many of you currently taking meals?\n");
+    scanf("%d", &people);
+    printf("How many times do you take meals a day?\n");
+    scanf("%d", &meal_per_day);
+    printf("How many days have you taken meals?\n");
+    scanf("%d", &days);
+    double meals = meal_per_day*people*days;
+    printf("Total number of meals is %d\n", (int)meals);
+}
+
+
+void calculate_meal_cost()
+{
+    //
+    int people, days, meal_per_day;
+    printf("How many of you currently taking meals?\n");
+    scanf("%d", &people);
+    printf("How many times do you take meals a day?\n");
+    scanf("%d", &meal_per_day);
+    printf("How many days have you taken meals?\n");
+    scanf("%d", &days);
+    double meals = meal_per_day*people*days;
+    double bazar;
+    printf("Enter total bazar amount : ");
+    scanf("%lf", &bazar);
+    double meal_cost = bazar / (double)meals;
+    printf("Cost of a single meals is %.2lf\n", meal_cost);
+}
